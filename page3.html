@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Survey - Page 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .survey-form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: left;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .g-recaptcha {
+            margin-bottom: 10px;
+        }
+
+        a.btn {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        a.btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="survey-form">
+        <h1>Student Survey - Page 3</h1>
+        <form method="POST" action="/submit">
+            <label for="internship_domains">Preferred Internship Domains (comma-separated):</label>
+            <input type="text" id="internship_domains" name="internship_domains" required><br>
+
+            <label for="current_year">Current Year of Education:</label>
+            <select id="current_year" name="current_year" required>
+                <option value="Freshman">YEAR 1</option>
+                <option value="Sophomore">YEAR 2</option>
+                <option value="Junior">YEAR 3</option>
+                <option value="Senior">YEAR 4</option>
+                <option value="Graduate">Graduate</option>
+            </select><br>
+
+            <label for="other_question_1">Question 1 (Optional):</label>
+            <textarea id="other_question_1" name="other_question_1" rows="4" cols="50"></textarea><br>
+
+            <label for="other_question_2">Question 2 (Optional):</label>
+            <textarea id="other_question_2" name="other_question_2" rows="4" cols="50"></textarea><br>
+
+            <!-- Add the reCAPTCHA widget here -->
+            <div class="g-recaptcha" data-sitekey= "6LdU86EnAAAAABj5kjq_1uIH8A6FhXXAt4isWTm3"></div>
+
+            <a href="{{ url_for('page4') }}" class="btn" id="completeSurveyBtn">Complete Survey</a>
+        </form>
+    </div>
+</body>
+</html>
